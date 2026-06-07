@@ -40,7 +40,17 @@
           "iconSize": "20,20",
           "anchor": "center",
           "marker": [
-            { "icon": "circle", "color": "#ff8800" }
+            {
+              "icon": "circle",
+              "color": {
+                "render": "#ff8800",
+                "mappings": [
+                  { "if": "servico~.*TV.*", "then": "#1f6feb" },
+                  { "if": "servico~.*FM.*", "then": "#2ea043" },
+                  { "if": "servico~.*OM.*", "then": "#e2a000" }
+                ]
+              }
+            }
           ]
         }
       ],
@@ -113,7 +123,19 @@
           "iconSize": "18,18",
           "anchor": "center",
           "marker": [
-            { "icon": "circle", "color": "#8800ff" }
+            {
+              "icon": "circle",
+              "color": {
+                "render": "#8800ff",
+                "mappings": [
+                  { "if": "servico~(604|507).*", "then": "#0aa3a3" },
+                  { "if": "servico~(251|252|253|255).*", "then": "#d4730a" },
+                  { "if": "servico~(020|023|034).*", "then": "#1f6feb" },
+                  { "if": "servico~(033|076|078|079).*", "then": "#2ea043" },
+                  { "if": "servico~(050|051|060).*", "then": "#9b59b6" }
+                ]
+              }
+            }
           ]
         }
       ],
