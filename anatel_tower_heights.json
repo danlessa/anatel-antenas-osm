@@ -24,7 +24,8 @@
         "pt": "ANATEL radiodifusão (TV/FM/OM) — referência"
       },
       "source": {
-        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/srd.geojson"
+        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/srd.geojson",
+        "osmTags": "estacao_id~*"
       },
       "minzoom": 8,
       "title": {
@@ -93,7 +94,8 @@
         "pt": "ANATEL estações licenciadas (móvel/aux) — referência"
       },
       "source": {
-        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/estacoes_geral.geojson"
+        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/estacoes_geral.geojson",
+        "osmTags": "estacao_id~*"
       },
       "minzoom": 10,
       "title": {
@@ -238,14 +240,17 @@
           "mappings": [
             {
               "if": "communication:mobile_phone=yes",
+              "ifnot": "communication:mobile_phone=no",
               "then": { "en": "Mobile phone (cellular)", "pt": "Telefonia móvel (celular)" }
             },
             {
               "if": "communication:television=yes",
+              "ifnot": "communication:television=no",
               "then": { "en": "Television broadcast", "pt": "Transmissão de TV" }
             },
             {
               "if": "communication:radio=yes",
+              "ifnot": "communication:radio=no",
               "then": { "en": "Radio broadcast (FM/AM)", "pt": "Transmissão de rádio (FM/AM)" }
             }
           ]
