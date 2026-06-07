@@ -1,0 +1,256 @@
+{
+  "id": "anatel_tower_heights",
+  "title": {
+    "en": "ANATEL comms-tower heights",
+    "pt": "Alturas de torres de comunicação (ANATEL)"
+  },
+  "shortDescription": {
+    "en": "Add height= to OSM communication towers, using ANATEL licensed-station data as a read-only reference.",
+    "pt": "Adicione height= às torres de comunicação no OSM, usando os dados de estações licenciadas da ANATEL como referência somente-leitura."
+  },
+  "description": {
+    "en": "Editable OSM communication towers alongside non-editable ANATEL reference points. Read the nearest ANATEL antenna-height hint and transcribe the structure height with judgement. IMPORTANT: ANATEL antenna height (HCI / AlturaAntena) is the radiation-centre height, NOT the tower top — use it only as a hint and verify before tagging. No bulk import / auto-conflation.",
+    "pt": "Torres de comunicação editáveis do OSM junto com pontos de referência não-editáveis da ANATEL. Leia a dica de altura de antena da ANATEL mais próxima e transcreva a altura da estrutura com critério. IMPORTANTE: a altura de antena da ANATEL (HCI / AlturaAntena) é a altura do centro de radiação, NÃO o topo da torre — use apenas como dica e verifique antes de marcar. Sem importação em massa."
+  },
+  "icon": "https://cdn.jsdelivr.net/gh/danlessa/anatel-antenas-osm@main/assets/tower.svg",
+  "startLat": -23.55,
+  "startLon": -46.63,
+  "startZoom": 13,
+  "layers": [
+    {
+      "id": "anatel_reference",
+      "name": {
+        "en": "ANATEL broadcast (TV/FM/OM) — reference",
+        "pt": "ANATEL radiodifusão (TV/FM/OM) — referência"
+      },
+      "source": {
+        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/srd.geojson"
+      },
+      "minzoom": 8,
+      "title": {
+        "render": {
+          "en": "ANATEL reference: {entidade}",
+          "pt": "Referência ANATEL: {entidade}"
+        }
+      },
+      "pointRendering": [
+        {
+          "location": ["point"],
+          "iconSize": "20,20",
+          "anchor": "center",
+          "marker": [
+            { "icon": "circle", "color": "#ff8800" }
+          ]
+        }
+      ],
+      "tagRenderings": [
+        {
+          "id": "ref-note",
+          "render": {
+            "en": "<i>Read-only ANATEL reference — not an OSM object. Antenna height ≠ structure height.</i>",
+            "pt": "<i>Referência ANATEL somente-leitura — não é um objeto do OSM. Altura da antena ≠ altura da estrutura.</i>"
+          }
+        },
+        {
+          "id": "ref-altura",
+          "render": {
+            "en": "Antenna height (HCI): <b>{altura_antena_m} m</b>",
+            "pt": "Altura da antena (HCI): <b>{altura_antena_m} m</b>"
+          },
+          "condition": "altura_antena_m~*"
+        },
+        {
+          "id": "ref-servico",
+          "render": { "en": "Service: {servico}", "pt": "Serviço: {servico}" },
+          "condition": "servico~*"
+        },
+        {
+          "id": "ref-canal",
+          "render": { "en": "Channel: {canal}", "pt": "Canal: {canal}" },
+          "condition": "canal~*"
+        },
+        {
+          "id": "ref-freq",
+          "render": { "en": "Frequency: {frequencia_mhz} MHz", "pt": "Frequência: {frequencia_mhz} MHz" },
+          "condition": "frequencia_mhz~*"
+        },
+        {
+          "id": "ref-local",
+          "render": { "en": "{municipio} / {uf}", "pt": "{municipio} / {uf}" },
+          "condition": "municipio~*"
+        },
+        {
+          "id": "ref-id",
+          "render": { "en": "ANATEL station id: {estacao_id}", "pt": "Id da estação ANATEL: {estacao_id}" },
+          "condition": "estacao_id~*"
+        }
+      ]
+    },
+    {
+      "id": "anatel_licenciadas",
+      "name": {
+        "en": "ANATEL licensed stations (mobile/aux) — reference",
+        "pt": "ANATEL estações licenciadas (móvel/aux) — referência"
+      },
+      "source": {
+        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/estacoes_geral.geojson"
+      },
+      "minzoom": 10,
+      "title": {
+        "render": {
+          "en": "ANATEL reference: {entidade}",
+          "pt": "Referência ANATEL: {entidade}"
+        }
+      },
+      "pointRendering": [
+        {
+          "location": ["point"],
+          "iconSize": "18,18",
+          "anchor": "center",
+          "marker": [
+            { "icon": "circle", "color": "#8800ff" }
+          ]
+        }
+      ],
+      "tagRenderings": [
+        {
+          "id": "lic-note",
+          "render": {
+            "en": "<i>Read-only ANATEL reference — not an OSM object. Antenna height ≠ structure height.</i>",
+            "pt": "<i>Referência ANATEL somente-leitura — não é um objeto do OSM. Altura da antena ≠ altura da estrutura.</i>"
+          }
+        },
+        {
+          "id": "lic-altura",
+          "render": {
+            "en": "Antenna height: <b>{altura_antena_m} m</b>",
+            "pt": "Altura da antena: <b>{altura_antena_m} m</b>"
+          },
+          "condition": "altura_antena_m~*"
+        },
+        {
+          "id": "lic-servico",
+          "render": { "en": "Service: {servico}", "pt": "Serviço: {servico}" },
+          "condition": "servico~*"
+        },
+        {
+          "id": "lic-freq",
+          "render": { "en": "Frequency: {frequencia_mhz} MHz", "pt": "Frequência: {frequencia_mhz} MHz" },
+          "condition": "frequencia_mhz~*"
+        },
+        {
+          "id": "lic-local",
+          "render": { "en": "{municipio} / {uf}", "pt": "{municipio} / {uf}" },
+          "condition": "municipio~*"
+        },
+        {
+          "id": "lic-count",
+          "render": {
+            "en": "{estacoes_no_local} licensed station(s) at this site",
+            "pt": "{estacoes_no_local} estação(ões) licenciada(s) neste local"
+          },
+          "condition": "estacoes_no_local~*"
+        }
+      ]
+    },
+    {
+      "id": "osm_tower",
+      "name": {
+        "en": "OSM communication towers (editable)",
+        "pt": "Torres de comunicação OSM (editável)"
+      },
+      "source": {
+        "osmTags": "man_made=tower"
+      },
+      "minzoom": 13,
+      "title": {
+        "render": {
+          "en": "Communication tower",
+          "pt": "Torre de comunicação"
+        }
+      },
+      "calculatedTags": [
+        "_anatel_height=closest(feat)('anatel_reference')?.properties?.altura_antena_m",
+        "_anatel_servico=closest(feat)('anatel_reference')?.properties?.servico",
+        "_anatel_dist=Math.round(distanceTo(feat)(closest(feat)('anatel_reference')))"
+      ],
+      "pointRendering": [
+        {
+          "location": ["point", "centroid"],
+          "iconSize": "32,32",
+          "anchor": "center",
+          "marker": [
+            {
+              "icon": "circle",
+              "color": {
+                "render": "#000000",
+                "mappings": [
+                  { "if": "communication:television=yes", "then": "#c1121f" },
+                  { "if": "communication:radio=yes", "then": "#1f6feb" },
+                  { "if": "communication:mobile_phone=yes", "then": "#2ea043" }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "title": { "en": "a communication tower", "pt": "uma torre de comunicação" },
+          "tags": ["man_made=tower"],
+          "description": {
+            "en": "A free-standing communication tower (mast/tower carrying antennas).",
+            "pt": "Uma torre de comunicação independente (mastro/torre com antenas)."
+          }
+        }
+      ],
+      "tagRenderings": [
+        {
+          "id": "anatel-hint",
+          "render": {
+            "en": "📡 Nearest ANATEL station: antenna height <b>{_anatel_height} m</b> ({_anatel_servico}), ~{_anatel_dist} m away.<br/><i>Antenna height ≠ structure height — use as a hint and verify before tagging.</i>",
+            "pt": "📡 Estação ANATEL mais próxima: altura da antena <b>{_anatel_height} m</b> ({_anatel_servico}), ~{_anatel_dist} m de distância.<br/><i>Altura da antena ≠ altura da estrutura — use como dica e verifique antes de marcar.</i>"
+          },
+          "condition": "_anatel_height~*"
+        },
+        {
+          "id": "tower-height",
+          "question": {
+            "en": "What is the height of this tower (structure top), in metres?",
+            "pt": "Qual é a altura desta torre (topo da estrutura), em metros?"
+          },
+          "render": {
+            "en": "This tower is <b>{height} m</b> tall",
+            "pt": "Esta torre tem <b>{height} m</b> de altura"
+          },
+          "freeform": {
+            "key": "height",
+            "type": "pfloat"
+          }
+        },
+        {
+          "id": "tower-communication",
+          "question": {
+            "en": "What is this communication tower used for?",
+            "pt": "Para que serve esta torre de comunicação?"
+          },
+          "multiAnswer": true,
+          "mappings": [
+            {
+              "if": "communication:mobile_phone=yes",
+              "then": { "en": "Mobile phone (cellular)", "pt": "Telefonia móvel (celular)" }
+            },
+            {
+              "if": "communication:television=yes",
+              "then": { "en": "Television broadcast", "pt": "Transmissão de TV" }
+            },
+            {
+              "if": "communication:radio=yes",
+              "then": { "en": "Radio broadcast (FM/AM)", "pt": "Transmissão de rádio (FM/AM)" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
