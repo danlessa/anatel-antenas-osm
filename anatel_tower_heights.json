@@ -44,6 +44,9 @@
           ]
         }
       ],
+      "lineRendering": [
+        { "color": "#ff8800", "width": 2 }
+      ],
       "tagRenderings": [
         {
           "id": "ref-note",
@@ -113,6 +116,9 @@
             { "icon": "circle", "color": "#8800ff" }
           ]
         }
+      ],
+      "lineRendering": [
+        { "color": "#8800ff", "width": 2 }
       ],
       "tagRenderings": [
         {
