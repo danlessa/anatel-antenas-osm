@@ -24,7 +24,7 @@
         "pt": "ANATEL radiodifusão (TV/FM/OM) — referência"
       },
       "source": {
-        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/srd.geojson",
+        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/srd_rmsp.geojson",
         "osmTags": "estacao_id~*"
       },
       "minzoom": 8,
@@ -97,7 +97,7 @@
         "pt": "ANATEL estações licenciadas (móvel/aux) — referência"
       },
       "source": {
-        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/estacoes_geral.geojson",
+        "geoJson": "https://raw.githubusercontent.com/danlessa/anatel-antenas-osm/main/data/estacoes_geral_rmsp.geojson",
         "osmTags": "estacao_id~*"
       },
       "minzoom": 10,
