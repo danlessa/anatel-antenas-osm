@@ -36,7 +36,7 @@
       },
       "pointRendering": [
         {
-          "location": ["point"],
+          "location": ["point", "centroid"],
           "iconSize": "20,20",
           "anchor": "center",
           "marker": [
@@ -109,7 +109,7 @@
       },
       "pointRendering": [
         {
-          "location": ["point"],
+          "location": ["point", "centroid"],
           "iconSize": "18,18",
           "anchor": "center",
           "marker": [
