@@ -1,3 +1,11 @@
+# macOS
+.DS_Store
+
+# Raw ANATEL source CSVs — huge (multi-GB); not for version control.
+# Generated GeoJSON outputs under data/ ARE tracked (they are what we host).
+data/**/*.csv
+data/*.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
